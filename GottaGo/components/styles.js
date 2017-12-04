@@ -14,8 +14,12 @@ const styles = {
         alignItems: 'center'
     },
     mapHeader: {
-        backgroundColor: "rgba(255, 255, 255, .7)",
-        paddingTop: 20
+        backgroundColor: "rgba(255, 255, 255, 1)",
+        paddingTop: 20,
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+    },
+    Button: {
     },
 
     container: {
@@ -27,22 +31,26 @@ const styles = {
       left: 0,
       right: 0,
       paddingVertical: 10,
+      backgroundColor: "rgba(255, 255, 255, .7)",
+      borderWidth: 0.5,
+      borderColor: '#d6d7da',
     },
     endPadding: {
       paddingRight: width - CARD_WIDTH,
     },
     card: {
-      padding: 10,
       elevation: 2,
       backgroundColor: "#FFF",
       marginHorizontal: 5,
-      shadowColor: "#000",
-      shadowRadius: 5,
-      shadowOpacity: 0.3,
-      shadowOffset: { x: 2, y: -2 },
+      shadowOffset:{  width: 10,  height: 10,  },
+      shadowColor: 'black',
+      shadowOpacity: 1.0,
       height: CARD_HEIGHT,
       width: CARD_WIDTH,
       overflow: "hidden",
+      borderRadius: 4,
+      borderWidth: 1,
+      borderColor: '#d6d7da',
     },
     cardImage: {
       flex: 3,
@@ -52,6 +60,7 @@ const styles = {
     },
     textContent: {
       flex: 1,
+      padding: 10,
     },
     cardtitle: {
       fontSize: 12,

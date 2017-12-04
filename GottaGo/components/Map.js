@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Subtitle, Title } from '@shoutem/ui';
+import { Subtitle, Title, Card, Caption, Button, Icon } from '@shoutem/ui';
 import styles from './styles';
 
 import {
@@ -37,7 +37,8 @@ export default class screens extends Component {
           longitude: 127.000923,
         },
         title: "Lantern Festival",
-        description: "#culture #cheongyeong #outdoors",
+        tags: "#culture #cheongyeong #outdoors",
+        description: "some cool event for cool people",
         image: Images[0],
       },
       {
@@ -46,7 +47,8 @@ export default class screens extends Component {
           longitude: 126.981697,
         },
         title: "Kimchi Cooking Class",
-        description: "#culture #myeongdong #indoors #cheap",
+        tags: "#culture #myeongdong #indoors #cheap",
+        description: "some cool event for cool people",
         image: Images[1],
       },
       {
@@ -55,7 +57,8 @@ export default class screens extends Component {
           longitude: 126.935005,
         },
         title: "Epic Party",
-        description: "#party #incheon #outdooors",
+        tags: "#party #incheon #outdooors",
+        description: "some cool event for cool people",
         image: Images[2],
       },
       {
@@ -64,7 +67,8 @@ export default class screens extends Component {
           longitude: 127.034569,
         },
         title: "Fun times with fun people",
-        description: "#party #gangnam #indoors #minerva",
+        tags: "#party #gangnam #indoors #minerva",
+        description: "some cool event for cool people",
         image: Images[3],
       },
     ],
@@ -182,19 +186,23 @@ export default class screens extends Component {
           contentContainerStyle={styles.endPadding}
         >
           {this.state.markers.map((marker, index) => (
-            <View style={styles.card} key={index}>
+            <Card key={index} style={styles.card} >
               <Image
+                styleName="medium-wide"
                 source={marker.image}
                 style={styles.cardImage}
                 resizeMode="cover"
               />
-              <View style={styles.textContent}>
-                <Text numberOfLines={1} style={styles.cardtitle}>{marker.title}</Text>
-                <Text numberOfLines={1} style={styles.cardDescription}>
-                  {marker.description}
-                </Text>
+              <View styleName="content" style={styles.textContent}>
+                <Subtitle>{marker.title}</Subtitle>
+                <View styleName="horizontal v-center space-between">
+                  <Caption>{marker.description}</Caption>
+                  <Button styleName="tight clear"><Icon name="add-to-favorites-off" /></Button>
+                </View>
               </View>
-            </View>
+            </Card>
+
+
           ))}
         </Animated.ScrollView>
       </View>

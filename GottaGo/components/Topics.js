@@ -8,19 +8,19 @@ const TOPICS = ['maps', 'add-to-favorites-off', 'search', 'events', 'user-profil
 const BottomTopics = ({ onTopicSelect }) => (
     <View styleName="horizontal">
 
-        <Button key="maps" styleName="full-width active">
-            <Icon name="maps" />
+        <Button key="maps" style={styles.Button} styleName="full-width active">
+            <Icon name="home" />
         </Button>
-        <Button key="add-to-favorites-on" styleName="full-width muted">
-            <Icon name="add-to-favorites-on" />
+        <Button key="add-to-favorites-on" style={styles.Button} styleName="full-width muted">
+            <Icon name="add-to-favorites-on" fontSize={60} />
         </Button>
-        <Button key="search" styleName="full-width muted">
+        <Button key="search" style={styles.Button} styleName="full-width muted">
             <Icon name="search" />
         </Button>
-        <Button key="events" styleName="full-width muted">
+        <Button key="events" style={styles.Button} styleName="full-width muted">
             <Icon name="events" />
         </Button>
-        <Button key="user-profile" styleName="full-width muted">
+        <Button key="user-profile" style={styles.Button} styleName="full-width muted">
             <Icon name="user-profile" />
         </Button>
 
