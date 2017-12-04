@@ -2,4 +2,10 @@ platform :ios, '8.0'
 target 'MapExample' do
 pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga/Yoga.podspec'
 pod 'GoogleMaps'
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
 end
