@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Button, Text, Overlay, Heading, Icon } from '@shoutem/ui';
+import { View, Button, Text, Overlay, Heading } from '@shoutem/ui';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 
 import styles from './styles';
 
@@ -9,19 +10,19 @@ const BottomTopics = ({ onTopicSelect }) => (
     <View styleName="horizontal">
 
         <Button key="maps" style={styles.Button} styleName="full-width active">
-            <Icon name="home" />
+            <Icon size={30} color="rgba(255,78, 0, 1)" name="home" />
         </Button>
-        <Button key="add-to-favorites-on" style={styles.Button} styleName="full-width muted">
-            <Icon name="add-to-favorites-on" fontSize={60} />
+        <Button key="heart" style={styles.Button} styleName="full-width muted">
+            <Icon size={30} color="grey" name="heart" fontSize={60} />
         </Button>
-        <Button key="search" style={styles.Button} styleName="full-width muted">
-            <Icon name="search" />
+        <Button key="magnifier" style={styles.Button} styleName="full-width muted">
+            <Icon size={30} color="grey" name="magnifier" />
         </Button>
-        <Button key="events" style={styles.Button} styleName="full-width muted">
-            <Icon name="events" />
+        <Button key="calendar" style={styles.Button} styleName="full-width muted">
+            <Icon size={30} color="grey" name="calendar" />
         </Button>
-        <Button key="user-profile" style={styles.Button} styleName="full-width muted">
-            <Icon name="user-profile" />
+        <Button key="user" style={styles.Button} styleName="full-width muted">
+            <Icon size={30} color="grey" name="user" />
         </Button>
 
         {/*

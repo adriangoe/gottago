@@ -14,12 +14,39 @@ const styles = {
         alignItems: 'center'
     },
     mapHeader: {
-        backgroundColor: "rgba(255, 255, 255, 1)",
+        backgroundColor: "rgba(239, 239, 239, 1)",
         paddingTop: 20,
         fontWeight: 'bold',
         fontStyle: 'italic',
+        fontFamily: "Helvetica",
+        borderWidth: 0.5,
+        borderColor: '#d6d7da',
     },
     Button: {
+    },
+
+    overlay: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      padding: 3,
+      width: "100%",
+      height: 30,
+      backgroundColor: "rgba(0, 0, 0, .5)",
+    },
+
+    overlay2: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      padding: 5,
+      paddingTop: 115,
+      // width: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0)",
+    },
+
+    white: {
+      color: "rgba(255,255, 255, 1)",
     },
 
     container: {
@@ -31,15 +58,15 @@ const styles = {
       left: 0,
       right: 0,
       paddingVertical: 10,
-      backgroundColor: "rgba(255, 255, 255, .7)",
-      borderWidth: 0.5,
+      backgroundColor: "rgba(255, 255, 255, 1)",
+      borderWidth: 1,
       borderColor: '#d6d7da',
     },
     endPadding: {
       paddingRight: width - CARD_WIDTH,
     },
     card: {
-      elevation: 2,
+      elevation: 5,
       backgroundColor: "#FFF",
       marginHorizontal: 5,
       shadowOffset:{  width: 10,  height: 10,  },
@@ -60,36 +87,109 @@ const styles = {
     },
     textContent: {
       flex: 1,
-      padding: 10,
+      padding: 7,
     },
-    cardtitle: {
-      fontSize: 12,
-      marginTop: 5,
+    title: {
+      fontSize: 18,
+      marginTop: 0,
+      paddingTop: 5,
       fontWeight: "bold",
+      color: "rgba(255,78, 0, 1)",
     },
-    cardDescription: {
+    caption: {
       fontSize: 12,
-      color: "#444",
+      color: "black",
     },
     markerWrap: {
       alignItems: "center",
       justifyContent: "center",
     },
     marker: {
-      width: 8,
-      height: 8,
-      borderRadius: 4,
-      backgroundColor: "rgba(130,4,150, 0.9)",
+      width: 16,
+      height: 16,
+      borderRadius: 8,
+      backgroundColor: "rgba(255,78, 0, 1)",
+      borderWidth: 3,
+      borderColor: "rgba(239, 239, 239, 1)",
     },
     ring: {
-      width: 24,
-      height: 24,
-      borderRadius: 12,
-      backgroundColor: "rgba(130,4,150, 0.3)",
+      width: 16,
+      height: 16,
+      borderRadius: 8,
+      backgroundColor: "rgba(255,78, 0, 0.3)",
       position: "absolute",
       borderWidth: 1,
-      borderColor: "rgba(130,4,150, 0.5)",
-    }
+      borderColor: "rgba(239, 239, 239, 1)",
+    },
+    circle: {
+      width: 60,
+      height: 60,
+      borderRadius: 30,
+      backgroundColor: '#ee6e73',
+      position: 'absolute',
+      bottom: 10,
+      right: 10,
+    },
+  addButton: {
+    backgroundColor: 'rgba(239, 239, 239, 1)',
+    borderColor: 'rgba(239, 239, 239, 1)',
+    borderWidth: 1,
+    height: 40,
+    width: 40,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 15,
+    right: 15,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+  },
+  b2: {
+    backgroundColor: 'rgba(239, 239, 239, 1)',
+    borderColor: 'rgba(239, 239, 239, 1)',
+    borderWidth: 1,
+    height: 40,
+    width: 40,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 115,
+    right: 15,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+  },
+  b3: {
+    backgroundColor: 'rgba(239, 239, 239, 1)',
+    borderColor: 'rgba(239, 239, 239, 1)',
+    borderWidth: 1,
+    height: 40,
+    width: 40,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: 65,
+    right: 15,
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 0
+    },
+  },
 }
 
 export default styles;

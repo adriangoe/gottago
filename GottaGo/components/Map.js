@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { Subtitle, Title, Card, Caption, Button, Icon } from '@shoutem/ui';
+import { Subtitle, Title, Card, Caption, Button } from '@shoutem/ui';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import Emoji from 'react-native-emoji';
+import ActionButton from 'react-native-action-button';
 
 import {
   AppRegistry,
@@ -12,14 +15,15 @@ import {
   Image,
   Dimensions,
   TouchableOpacity,
+  TouchableHighlight,
 } from "react-native";
 
-import MapView from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 const { width, height } = Dimensions.get("window");
 
 const CARD_HEIGHT = height / 3;
-const CARD_WIDTH = CARD_HEIGHT * 3;
+const CARD_WIDTH = width - 50;
 
 const Images = [
   { uri: "https://i.pinimg.com/originals/df/07/90/df07908ae873ddf3566f6f3a174be932.jpg" },
@@ -73,7 +77,7 @@ export default class screens extends Component {
       },
     ],
     region: {
-      latitude: 37.51,
+      latitude: 37.54,
       longitude: 126.991310,
       latitudeDelta: 0.16,
       longitudeDelta: 0.16,
@@ -88,7 +92,7 @@ export default class screens extends Component {
     // We should detect when scrolling has stopped then animate
     // We should just debounce the event listener here
     this.animation.addListener(({ value }) => {
-      let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
+      let index = Math.floor(value / CARD_WIDTH ); // animate 30% away from landing on the next item
       if (index >= this.state.markers.length) {
         index = this.state.markers.length - 1;
       }
@@ -103,7 +107,8 @@ export default class screens extends Component {
           const { coordinate } = this.state.markers[index];
           this.map.animateToRegion(
             {
-              ...coordinate,
+              latitude: coordinate.latitude,
+              longitude: coordinate.longitude,
               latitudeDelta: this.state.region.latitudeDelta,
               longitudeDelta: this.state.region.longitudeDelta,
             },
@@ -123,12 +128,11 @@ export default class screens extends Component {
       ];
       const scale = this.animation.interpolate({
         inputRange,
-        outputRange: [.5, 1.5, .5],
-        extrapolate: "clamp",
+        outputRange: ['rgba(239, 239, 239, 1)', 'rgba(255,78, 0, 1)', 'rgba(239, 239, 239, 1)']
       });
       const opacity = this.animation.interpolate({
         inputRange,
-        outputRange: [0.35, 1, 0.35],
+        outputRange: [0.6, 1, 0.6],
         extrapolate: "clamp",
       });
       return { scale, opacity };
@@ -136,11 +140,13 @@ export default class screens extends Component {
 
     return (
       <View style={styles.container}>
+      <View height="60%">
         <Title styleName="h-center multiline" style={styles.mapHeader}>
             #GottaGo
         </Title>
         <MapView
           ref={map => this.map = map}
+          provider={PROVIDER_GOOGLE}
           initialRegion={this.state.region}
           style={styles.container}
         >
@@ -148,7 +154,7 @@ export default class screens extends Component {
             const scaleStyle = {
               transform: [
                 {
-                  scale: interpolations[index].scale,
+                  backgroundColor: interpolations[index].scale,
                 },
               ],
             };
@@ -158,13 +164,25 @@ export default class screens extends Component {
             return (
               <MapView.Marker key={index} coordinate={marker.coordinate}>
                 <Animated.View style={[styles.markerWrap, opacityStyle]}>
-                  <Animated.View style={[styles.ring, scaleStyle]} />
-                  <View style={styles.marker} />
+                <Emoji name="100"/>
                 </Animated.View>
               </MapView.Marker>
             );
           })}
         </MapView>
+          <TouchableHighlight style={styles.addButton}
+            underlayColor='#ff7043' onPress={()=>{console.log('pressed')}}>
+            <Icon name="cursor" size={19} color="black" backgroundColor="rgba(0,0,0,0)"/>
+          </TouchableHighlight>
+          <TouchableHighlight style={styles.addButton, styles.b2}
+            underlayColor='#ff7043' onPress={()=>{console.log('pressed')}}>
+            <Icon name="location-pin" size={19} color="black" backgroundColor="rgba(0,0,0,0)"/>
+          </TouchableHighlight>
+          <TouchableHighlight style={styles.addButton, styles.b3}
+            underlayColor='#ff7043' onPress={()=>{console.log('pressed')}}>
+            <Icon name="direction" size={19} color="black" backgroundColor="rgba(0,0,0,0)"/>
+          </TouchableHighlight>
+      </View>
         <Animated.ScrollView
           horizontal
           scrollEventThrottle={1}
@@ -193,11 +211,16 @@ export default class screens extends Component {
                 style={styles.cardImage}
                 resizeMode="cover"
               />
+              <View style={styles.overlay}>
+                <Subtitle style={styles.white} styleName="sm-gutter-horizontal">{ marker.tags }</Subtitle>
+              </View>
+              <View style={styles.overlay2}>
+                  <Icon.Button name="heart" size={22} color="white" backgroundColor="rgba(0,0,0,0)" onPress={() => this.name="heart-off"} />
+              </View>
               <View styleName="content" style={styles.textContent}>
-                <Subtitle>{marker.title}</Subtitle>
+                <Subtitle style={ styles.title } >{marker.title} <Emoji name="fire"/></Subtitle>
                 <View styleName="horizontal v-center space-between">
-                  <Caption>{marker.description}</Caption>
-                  <Button styleName="tight clear"><Icon name="add-to-favorites-off" /></Button>
+                  <Caption style={ styles.caption }>{marker.description}</Caption>
                 </View>
               </View>
             </Card>
