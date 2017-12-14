@@ -4,6 +4,7 @@ import styles from './styles';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Emoji from 'react-native-emoji';
 import ActionButton from 'react-native-action-button';
+import NavigationExperimental from 'react-native-deprecated-custom-components'
 
 import {
   AppRegistry,
@@ -25,12 +26,6 @@ const { width, height } = Dimensions.get("window");
 const CARD_HEIGHT = height / 3;
 const CARD_WIDTH = width - 50;
 
-const Images = [
-  { uri: "https://i.pinimg.com/originals/df/07/90/df07908ae873ddf3566f6f3a174be932.jpg" },
-  { uri: "https://seattlelocalfood.files.wordpress.com/2014/12/jars-of-kimchi-2.jpg" },
-  { uri: "https://www.tribaeast.com/wp-content/uploads/2017/07/4D-Fun-Remix-Fun-World-Club-Dome-Korea-2017-middle-stage-Impression-800x400.png" },
-  { uri: "https://pbs.twimg.com/media/DPwzws5XkAAFQS6.jpg" }
-]
 
 export default class screens extends Component {
   state = {
@@ -40,40 +35,52 @@ export default class screens extends Component {
           latitude: 37.573103,
           longitude: 127.000923,
         },
-        title: "Lantern Festival",
-        tags: "#culture #cheongyeong #outdoors",
-        description: "some cool event for cool people",
-        image: Images[0],
+        title: "Seoul Christmas Festival 2017",
+        tags: "#festival #free ",
+        description: "The Seoul Christmas Festival will take place along Cheonggyecheon Stream from Dec. 9th, 2017 to Jan. 2nd, 2018. See beautiful Christmas decorations and join in the festivities at Cheonggyecheon! Cheonggye Plaza will feature a huge Christmas tree and an illuminated Christmas tree-themed area. The festival is divided into several themed areas; each area will have its own unique vibe and photo zones for visitors to enjoy. Just as with last year, there will be a special Christmas Eve concert and a New Year's concert. Make special Christmas memories at this incredible winter festival!",
+        image: { uri: "https://images.myguide-cdn.com/seoul/blog/10-festive-christmas-activities-to-enjoy-in-seoul/large/10-festive-christmas-activities-to-enjoy-in-seoul-100596.jpg" },
+        when: "From 9th December 2017 to 2nd January 2018 at Cheonggyecheon",
+        link: "http://english.visitseoul.net/event-festival/Seoul-Christmas-Festival-2017_/23746?curPage=1",
+        emoji: "christmas_tree",
       },
       {
         coordinate: {
           latitude: 37.557319,
           longitude: 126.981697,
         },
-        title: "Kimchi Cooking Class",
-        tags: "#culture #myeongdong #indoors #cheap",
-        description: "some cool event for cool people",
-        image: Images[1],
+        title: "Seoul Christmas Festival 2017",
+        tags: "#festival #free ",
+        description: "The Seoul Christmas Festival will take place along Cheonggyecheon Stream from Dec. 9th, 2017 to Jan. 2nd, 2018. See beautiful Christmas decorations and join in the festivities at Cheonggyecheon! Cheonggye Plaza will feature a huge Christmas tree and an illuminated Christmas tree-themed area. The festival is divided into several themed areas; each area will have its own unique vibe and photo zones for visitors to enjoy. Just as with last year, there will be a special Christmas Eve concert and a New Year's concert. Make special Christmas memories at this incredible winter festival!",
+        image: { uri: "https://images.myguide-cdn.com/seoul/blog/10-festive-christmas-activities-to-enjoy-in-seoul/large/10-festive-christmas-activities-to-enjoy-in-seoul-100596.jpg" },
+        when: "From 9th December 2017 to 2nd January 2018 at Cheonggyecheon",
+        link: "http://english.visitseoul.net/event-festival/Seoul-Christmas-Festival-2017_/23746?curPage=1",
+        emoji: "christmas_tree",
       },
       {
         coordinate: {
           latitude: 37.574192,
           longitude: 126.935005,
         },
-        title: "Epic Party",
-        tags: "#party #incheon #outdooors",
-        description: "some cool event for cool people",
-        image: Images[2],
+        title: "Seoul Christmas Festival 2017",
+        tags: "#festival #free ",
+        description: "The Seoul Christmas Festival will take place along Cheonggyecheon Stream from Dec. 9th, 2017 to Jan. 2nd, 2018. See beautiful Christmas decorations and join in the festivities at Cheonggyecheon! Cheonggye Plaza will feature a huge Christmas tree and an illuminated Christmas tree-themed area. The festival is divided into several themed areas; each area will have its own unique vibe and photo zones for visitors to enjoy. Just as with last year, there will be a special Christmas Eve concert and a New Year's concert. Make special Christmas memories at this incredible winter festival!",
+        image: { uri: "https://images.myguide-cdn.com/seoul/blog/10-festive-christmas-activities-to-enjoy-in-seoul/large/10-festive-christmas-activities-to-enjoy-in-seoul-100596.jpg" },
+        when: "From 9th December 2017 to 2nd January 2018 at Cheonggyecheon",
+        link: "http://english.visitseoul.net/event-festival/Seoul-Christmas-Festival-2017_/23746?curPage=1",
+        emoji: "christmas_tree",
       },
       {
         coordinate: {
           latitude: 37.512670,
           longitude: 127.034569,
         },
-        title: "Fun times with fun people",
-        tags: "#party #gangnam #indoors #minerva",
-        description: "some cool event for cool people",
-        image: Images[3],
+        title: "Seoul Christmas Festival 2017",
+        tags: "#festival #free ",
+        description: "The Seoul Christmas Festival will take place along Cheonggyecheon Stream from Dec. 9th, 2017 to Jan. 2nd, 2018. See beautiful Christmas decorations and join in the festivities at Cheonggyecheon! Cheonggye Plaza will feature a huge Christmas tree and an illuminated Christmas tree-themed area. The festival is divided into several themed areas; each area will have its own unique vibe and photo zones for visitors to enjoy. Just as with last year, there will be a special Christmas Eve concert and a New Year's concert. Make special Christmas memories at this incredible winter festival!",
+        image: { uri: "https://images.myguide-cdn.com/seoul/blog/10-festive-christmas-activities-to-enjoy-in-seoul/large/10-festive-christmas-activities-to-enjoy-in-seoul-100596.jpg" },
+        when: "From 9th December 2017 to 2nd January 2018 at Cheonggyecheon",
+        link: "http://english.visitseoul.net/event-festival/Seoul-Christmas-Festival-2017_/23746?curPage=1",
+        emoji: "christmas_tree",
       },
     ],
     region: {
@@ -132,7 +139,7 @@ export default class screens extends Component {
       });
       const opacity = this.animation.interpolate({
         inputRange,
-        outputRange: [0.6, 1, 0.6],
+        outputRange: [0, 1, 0],
         extrapolate: "clamp",
       });
       return { scale, opacity };
@@ -140,7 +147,7 @@ export default class screens extends Component {
 
     return (
       <View style={styles.container}>
-      <View height="60%">
+      <View height="57%">
         <Title styleName="h-center multiline" style={styles.mapHeader}>
             #GottaGo
         </Title>
@@ -164,8 +171,9 @@ export default class screens extends Component {
             return (
               <MapView.Marker key={index} coordinate={marker.coordinate}>
                 <Animated.View style={[styles.markerWrap, opacityStyle]}>
-                <Emoji name="100"/>
+                  <View style={styles.marker} />
                 </Animated.View>
+                <Text style={{fontSize: 40, marginTop: -40, opacity: 1, }}><Emoji name={ marker.emoji }/></Text>
               </MapView.Marker>
             );
           })}
@@ -204,7 +212,18 @@ export default class screens extends Component {
           contentContainerStyle={styles.endPadding}
         >
           {this.state.markers.map((marker, index) => (
-            <Card key={index} style={styles.card} >
+            <TouchableOpacity
+              key={index}
+              onPress={()=>{
+                // Navigate to a separate movie detail screen
+                this.props.navigator.push({
+                  name: 'event',
+                  info: marker,
+                });
+              }}
+            >
+            <Text style={{ padding: 5, fontSize: 13, color: "grey" }}><Emoji name={ marker.emoji } /> trending </Text>
+            <Card style={styles.card} >
               <Image
                 styleName="medium-wide"
                 source={marker.image}
@@ -218,12 +237,13 @@ export default class screens extends Component {
                   <Icon.Button name="heart" size={22} color="white" backgroundColor="rgba(0,0,0,0)" onPress={() => this.name="heart-off"} />
               </View>
               <View styleName="content" style={styles.textContent}>
-                <Subtitle style={ styles.title } >{marker.title} <Emoji name="fire"/></Subtitle>
+                <Subtitle style={ styles.title } >{marker.title} </Subtitle>
                 <View styleName="horizontal v-center space-between">
                   <Caption style={ styles.caption }>{marker.description}</Caption>
                 </View>
               </View>
             </Card>
+            </TouchableOpacity>
 
 
           ))}

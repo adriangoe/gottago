@@ -37,10 +37,9 @@ const styles = {
 
     overlay2: {
       position: 'absolute',
-      top: 0,
+      top: "50%",
       left: 0,
       padding: 5,
-      paddingTop: 115,
       // width: "100%",
       backgroundColor: "rgba(0, 0, 0, 0)",
     },
@@ -105,9 +104,9 @@ const styles = {
       justifyContent: "center",
     },
     marker: {
-      width: 16,
-      height: 16,
-      borderRadius: 8,
+      width: 40,
+      height: 40,
+      borderRadius: 20,
       backgroundColor: "rgba(255,78, 0, 1)",
       borderWidth: 3,
       borderColor: "rgba(239, 239, 239, 1)",
@@ -189,6 +188,82 @@ const styles = {
       height: 1,
       width: 0
     },
+  },
+  infobox: {
+    padding: 15,
+    backgroundColor: "white",
+  },
+  footer: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    borderWidth: 1,
+    borderColor: '#d6d7da',
+    backgroundColor: "white",
+    padding: 10,
+    height: 60,
+  },
+  backbtn: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    margin: 10,
+    marginTop: 20,
+    backgroundColor: "rgba(0,0,0,0)",
+  },
+  sharebtn: {
+    position: "absolute",
+    top: "30%",
+    right: 0,
+    margin: 10,
+    marginTop: 20,
+    backgroundColor: "rgba(0,0,0,0)",
+  },
+  lovebtn: {
+    position: "absolute",
+    top: "30%",
+    left: 0,
+    margin: 10,
+    marginTop: 20,
+    backgroundColor: "rgba(0,0,0,0)",
+  },
+  eventimg: {
+    height: "40%"
+  },
+  eventtags: {
+    color: "grey",
+    fontSize: 12,
+    paddingTop: 0,
+    paddingLeft: 2,
+    paddingBottom: 7,
+  },
+  eventname: {
+    color: "rgba(255,78, 0, 1)",
+    paddingBottom: 7,
+  },
+  eventtext: {
+    paddingLeft: 2,
+    paddingTop: 15,
+  },
+  gobtn: {
+    backgroundColor: "rgba(255,78, 0, 1)",
+    position: "absolute",
+    right: 0,
+    top: 0,
+    padding: 7,
+    bottom: 0,
+    margin: 10,
+  },
+  white: {
+    color: "white",
+  },
+  center: {
+    position: "absolute",
+    left: "36%",
+    margin: 14,
+  },
+  price: {
+    paddingTop: 10,
   },
 }
 
