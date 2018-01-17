@@ -1,91 +1,63 @@
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
-import App from './components/App';
+import { Screen } from '@shoutem/ui';
 
-export default class GottaGoeApp extends Component {
-    render() {
-        return (<App />);
-    }
+import Screens from './components/Map';
+import Event from './components/Event';
+import { BottomTopics } from './components/Topics';
+
+import NavigationExperimental from 'react-native-deprecated-custom-components'
+
+import {
+  Image,              // Renders background image
+  ScrollView,         // Scrollable container
+  StyleSheet,         // CSS-like styles
+  Text,               // Renders text
+  TouchableOpacity,   // Handles button presses
+  View                // Container component
+} from 'react-native';
+
+const RouteMapper = (route, navigationOperations, onComponentRef) => {
+  if (route.name === 'map') {
+    return (
+      // TODO: Add List component
+            <Screen >
+                <Screens navigator={navigationOperations}/>
+
+                <BottomTopics />
+            </Screen>
+    );
+  } else if (route.name === 'event') {
+    return (
+
+        <Screen >
+            <Event
+                info={route.info}
+                navigator={navigationOperations}
+            />
+        </Screen>
+    );
+  }
+};
+
+export default class App extends Component {
+  componentDidMount() {
+    // Hide the status bar
+  }
+
+  render() {
+    return (
+      // Handle navigation between screens
+      <NavigationExperimental.Navigator
+        // Default to list route
+        initialRoute={{name: 'map'}}
+        // Use FloatFromBottom transition between screens
+        configureScene={(route, routeStack) => NavigationExperimental.Navigator.SceneConfigs.FloatFromBottom}
+        // Pass a route mapper functions
+        renderScene={RouteMapper}
+      />
+    );
+  }
 }
 
-AppRegistry.registerComponent('GottaGo', () => GottaGoeApp);
-
-
-// import React, { Component } from 'react';
-// import { AppRegistry, StyleSheet, View, Dimensions } from 'react-native';
-// import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-// import RetroMapStyles from './mapstyle.json';
-// let { width, height } = Dimensions.get('window');
-// const ASPECT_RATIO = width / height;
-// const LATITUDE = 0;
-// const LONGITUDE = 0;
-// const LATITUDE_DELTA = 0.0922;
-// const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
-// export default class GottaGo extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       region: {
-//         latitude: LATITUDE,
-//         longitude: LONGITUDE,
-//         latitudeDelta: LATITUDE_DELTA,
-//         longitudeDelta: LONGITUDE_DELTA,
-//       }
-//     };
-//   }
-//   componentDidMount() {
-//     navigator.geolocation.getCurrentPosition(
-//       position => {
-//         this.setState({
-//           region: {
-//             latitude: position.coords.latitude,
-//             longitude: position.coords.longitude,
-//             latitudeDelta: LATITUDE_DELTA,
-//             longitudeDelta: LONGITUDE_DELTA,
-//           }
-//         });
-//       },
-//     (error) => console.log(error.message),
-//     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-//     );
-//     this.watchID = navigator.geolocation.watchPosition(
-//       position => {
-//         this.setState({
-//           region: {
-//             latitude: position.coords.latitude,
-//             longitude: position.coords.longitude,
-//             latitudeDelta: LATITUDE_DELTA,
-//             longitudeDelta: LONGITUDE_DELTA,
-//           }
-//         });
-//       }
-//     );
-//   }
-//   componentWillUnmount() {
-//     navigator.geolocation.clearWatch(this.watchID);
-//   }
-//   render() {
-//     return (
-//       <MapView
-//         provider={ PROVIDER_GOOGLE }
-//         style={ styles.container }
-//         customMapStyle={ RetroMapStyles }
-//         showsUserLocation={ true }
-//         region={ this.state.region }
-//         onRegionChange={ region => this.setState({region}) }
-//         onRegionChangeComplete={ region => this.setState({region}) }
-//       >
-//         <MapView.Marker
-//           coordinate={ this.state.region }
-//         />
-//       </MapView>
-//     );
-//   }
-// }
-// const styles = StyleSheet.create({
-//   container: {
-//     height: '100%',
-//     width: '100%',
-//   }
-// });
-// AppRegistry.registerComponent('GottaGo', () => GottaGo);
+AppRegistry.registerComponent('GottaGo', () => App);
